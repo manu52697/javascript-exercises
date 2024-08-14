@@ -1,7 +1,6 @@
 const sumAll = function(start, end) {
 
 	if(validate(start) && validate(end)){
-		console.log('Valid input');
 		let max = Math.max(start, end);
 		let min = Math.min(start, end);
 		return sumToN(max) - sumToN(min - 1);
@@ -16,10 +15,10 @@ function sumToN(n){
 }
 
 function validate(n){
-	console.log(typeof n);
 	if(n == null) return false;
 	if(typeof n !== 'number') return false;
 	if(n <= 0) return false;
+	if(n % 1 != 0) return false;
 	return true;
 }
 
