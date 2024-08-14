@@ -1,4 +1,9 @@
-const sumAll = require('./sumAll')
+const sumModule = require('./sumAll');
+const sumAll = sumModule.sumAll;
+const validate = sumModule.validate;
+
+//const sumAll = require('./sumAll')
+
 
 describe('sumAll', () => {
   test('sums numbers within the range', () => {
@@ -22,4 +27,17 @@ describe('sumAll', () => {
   test.skip('returns ERROR with non-number parameters', () => {
     expect(sumAll(10, [90, 1])).toEqual('ERROR');
   });
+});
+
+describe('validate', () => {
+	test('accepts positive integers', () => {
+		expect(validate(1)).toEqual(true);
+	});
+	test('rejects null', () => {
+		expect(validate(null)).toEqual(false);
+	});
+	test('rejects negative numbers', () => {
+		expect(validate(-3)).toEqual(false);
+	});
+	
 });
