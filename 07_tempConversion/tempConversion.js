@@ -4,12 +4,12 @@ const convertToCelsius = function(temp) {
 };
 
 const convertToFahrenheit = function(temp) {
-	let res = (x * 9 / 5) + 32;
+	let res = (temp * 9 / 5) + 32;
 	return fmtResult(res);
 };
 
 function fmtResult(temp){
-	if(temp % 1 != 0) return temp.toFixed(1);
+	if(temp % 1 != 0) return +(temp.toFixed(1));
 	return temp;
 }
 
